@@ -6,5 +6,8 @@
 ## Design Principles
 - [Principle of Least Knowledge (Law of Demeter)](law_of_demeter.md)
 
+## Design Patterns
+- [Strategy Pattern](strategy_pattern.md)
+
 ## Other
 - [Method Overriding (Covariance and Contravariance)](method_overriding.md)
