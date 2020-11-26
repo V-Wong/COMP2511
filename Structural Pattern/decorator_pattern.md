@@ -5,11 +5,11 @@ to objects by placing these objects **inside special wrapper objects** that cont
 **Multiple decorators** can be added to a single object and the behaviours **stacked recursively**.
 
 ## Advantages
-- Allows for **extension** of an object's beaviour without making a new subclass.
+- Allows for **extension** of an object's behaviour without making a new subclass.
 - Can add or remove responsibilities from an object at **runtime**.
 - Can **combine several behaviours** by wrapping an object into multiple decorators.
 - Satisfies **single responsibility principle** by dividing a monolithic class into several smaller decorating classes.
-- Satisfies **open=closed principle** by not requiring changes in the original class when adding new functionality.
+- Satisfies **open/closed principle** by not requiring changes in the original class when adding new functionality.
 
 ## Disadvantages
 - Hard to **remove specific wrappers** from the wrappers stack.
