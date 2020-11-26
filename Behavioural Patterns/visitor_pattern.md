@@ -18,9 +18,9 @@ Visitor is a **behavioural pattern** that lets you **separate algorithms from th
 ## Static vs Dynamic Binding
 - **Static binding** refers to execution where types of objects are determined/known at **compile time**.
 - **Dynamic binding** refers to execution where types of objects are determined/known at **runtime**.
-- **Overloaded methods** are bonded using **static binding**.
-- **Overridden methods** are bonded using **dynamic binding**.
-- Static binding prevents us from using overloaded methods for our Visitor class.
+- **Overloaded methods** are binded using **static binding**.
+- **Overridden methods** are binded using **dynamic binding**.
+- Static binding prevents us from using overloaded methods with single dispatch in our Visitor class. 
 
 ```java
 class Animal { }
