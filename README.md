@@ -25,7 +25,7 @@ Behavioral patterns take care of effective communication and the assignment of r
 |[State Pattern](Behavioural%20Patterns/state_pattern.md)|Allows objects to **alter its behaviour** when its **internal state changes**.|
 |[Observer Pattern](Behavioural%20Patterns/observer_pattern.md)|Define a **subscription mechanism** to **notify multiple objects** about any **events that happen to an observed object**.|
 |[Template Method Pattern](Behavioural%20Patterns/template_pattern.md)|Define the **skeleton of an algorithm** in the superclass but lets **subclasses override specific steps** of the algorithm **without changing its structure**.|
-|[Visitor Pattern](Behavioural%20Patterns/template_pattern.md)|**Separate algorithms from the objects** on which they operate. Allow **new behaviours** to be added to **existing classes** without modifying them (mostly).
+|[Visitor Pattern](Behavioural%20Patterns/visitor_pattern.md)|**Separate algorithms from the objects** on which they operate. Allow **new behaviours** to be added to **existing classes** without modifying them (mostly).
 
 ### Creational Patterns
 Creation patterns provide various object creation mechanisms that increase flexibility and code reuse.
