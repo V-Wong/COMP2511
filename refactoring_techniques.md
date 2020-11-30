@@ -175,3 +175,113 @@ Note: this has a different problem in that movies cannot change classification d
 - Hold an object of this interface in a field inside the Movie class. Usually the constructor would require such an object.
 - The Movie class can then delegate price calculation to the held object.
 - The Movie class can also change the specific price object with one of a different type during runtime by using an appropriate setter function.
+
+## Introduce Parameter Object
+### Explanation
+**Identical groups of parameters** scattered throughout the code is a form of **code duplication**. These parameters should be **consolidated into a single class**.
+
+### Advantages
+- Reduces **code duplication**.
+- Prevents methods from having **long list of parameters** which can be hard to comprehend and use.
+
+### Example
+Before:
+```java
+abstract class Customer {
+    public Integer amountInvoicedIn(Date start, Date end);
+    public Integer amountReceivedIn(Date start, Date end);
+    public Integer amountOverdueIn(Date start, Date end);
+}
+```
+
+After:
+```java
+abstract class Customer {
+    public Integer amountInvoicedIn(DateRange range);
+    public Integer amountReceivedIn(DateRange range);
+    public Integer amountOverdueIn(DateRange range);
+}
+```
+
+## Preseve Whole Object
+### Explanation
+Essentially the same as **Introduce Parameter Object**. Instead of extracting extracting values from an object and passing into a function, **pass the whole object into the function**. 
+
+### Advantages
+- A **single object with a comprehensible name** is seen instead of a list of unrelated parameter names.
+- If the function needs **more values from the object**, **only the function body needs to be changed**. Changes do not need to be made at each place the function is called.
+
+### Disadvantages
+- Potentially **less flexible** as the function is now limited to objects of the **required class**.
+
+### Examples
+Before:
+```java
+Integer low = daysTempRange.getLow();
+Integer high = daysTempRange.getHigh();
+Boolean withinPlan = plan.withinRange(low, high);
+```
+
+After:
+```java
+Boolean withinPlan = plan.withinRange(daysTempRange);
+```
+
+## Replace Inheritance with Delegation
+### Explanation
+**Refused bequest** is the code smell where subclasses **use only some** of the methods and properties inherited from its parents. The often arises from the **incorrect use of inheritance**. In such cases, a **field should be added** to the class to **hold its superclass object**. Methods should then be **delgated to the superclass object**.
+
+### Advantages
+- Class doesn't contain **unneeded methods** inherited from superclass.
+- Can help satisfy **Liskov Substitution Principle** if the original inheritance design was not suitable.
+
+### Disadvantages
+- May require writing a lot of simple delegating methods.
+
+### Example
+Before:
+```java
+class Stack<E> extends Vector<E> {
+    // Inherit all Vector methods.
+
+    // Add additional Stack specific methods.
+}
+```
+
+After:
+```java
+class Stack<E> {
+    private Vector<E> v;
+
+    public Stack() {
+        this.v = new Vector<E>();
+    }
+
+    public boolean isEmpty() {
+        return v.isEmpty();
+    }
+
+    public void push(E e) {
+        v.add(e);
+    }
+
+    public E pop() {
+        return v.remove(v.size() - 1);
+    }
+
+    // and other delegated methods as necessary...
+}
+```
+
+## Push Down Field and Method
+### Explanation
+If a field or method in a superclass is **only used in some subclasses**, then they should be **moved to the subclasses**. 
+
+### Advantages
+- Improves **internal class coherency** as fields and methods are located where they are **actually used**.
+
+## Extract Subclass
+### Explanation
+If a class has features that are **only used in certain case**s, then these features should be **moved into a subclass** for the special case. This is essentially an application of **Push Down Field and Method**.
+
+Note: this technique can run into the usual problems faced by inheritance. In such cases, **delegation and strategy pattern** are viable alternatives.
