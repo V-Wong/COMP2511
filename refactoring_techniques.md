@@ -2,6 +2,19 @@
 ## Overview
 **Refactoring** is the process of **restructuring** software to make it easier to understand and modify **without changing external behaviour**.
 
+## Refactoring Techniques
+|Technique Name|Description|
+|-|-|
+|Extract Method|Group code fragments together in a method.|
+|Move Method|Move methods to the class most appropriate.|
+|Replace Temp With Query| Remove temp variables with method calls.|
+|Replace Conditional With Polymorphism|Override methods in subclasses with specific behaviour to remove class/instance checks.|
+|Introduce Parameter Object|Make a new class that holds variables that are often grouped together and passed into functions.|
+|Preserve Whole Object|Pass entire objects into functions instead of individual values from the object.|
+|Replace Inheritance With Delegation|Hold the superclass object in a private field and delegate the behaviours as required.|
+|Push Down Field and Method|Fields and methods should be placed in the subclasses that actually use them instead of the superclass.|
+|Extract Subclass|Behaviours only used in special cases by a class should be moved down to a subclass.|
+
 ## Extract Method
 ### Explanation
 Methods with more lines are harder to understand. Code fragments that can be **grouped** together should be moved to their **own method**.
