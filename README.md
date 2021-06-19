@@ -1,4 +1,8 @@
-# COMP2511
+# COMP2511 - Object Oriented Programming
+My study notes for the various objected oriented refactoring techniques and design patterns. Includes code samples as well as written text explanations.
+
+Note: [Refactoring Guru](https://refactoring.guru/refactoring) is likely a much better resource than these notes.
+
 ## General
 - [Domain Modelling](domain_modelling.md)
 - [Refactoring Techniques](refactoring_techniques.md)
